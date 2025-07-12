@@ -2,13 +2,12 @@
   "name": "carshow",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://darkcode-it.github.io/CarShow/",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "deploy": "npm run build && npx gh-pages -d out"
+    "export": "next export",
+    "postexport": "rm -rf docs && mv out docs",
+    "deploy": "npm run build && npm run export && git add docs && git commit -m \"deploy docs\" && git push"
   },
   "dependencies": {
     "next": "15.3.5",
@@ -17,7 +16,6 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "gh-pages": "^6.3.0"
+    "tailwindcss": "^4"
   }
 }

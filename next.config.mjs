@@ -2,17 +2,18 @@
 const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig = {
-  // مرحله‌ی Export برای Static HTML
+  // خروجی استاتیک
   output: 'export',
 
-  // اگر در حالت تولید (deploy) هستیم، آدرس پایه را زیرپوشه مخزن قرار بده
-  assetPrefix: isProd ? '/my-next-app/' : '',
-  basePath: isProd ? '/my-next-app' : '',
+  // مسیر دقیق (Case‐sensitive) ریپو روی گیت‌هاب
+  assetPrefix: isProd ? '/CarShow/' : '',
+  basePath: isProd ? '/CarShow' : '',
 
-  // چون صفحه‌ی Static است، غیرفعال‌سازی بهینه‌سازی تصاویر
-  images: {
-    unoptimized: true
-  }
+  // استایل‌های CSS/JS ان‌ایمپورتی
+  images: { unoptimized: true },
+
+  // اضافه کردن اسلش انتهایی برای پوشه‌ها
+  trailingSlash: true,
 };
 
 export default nextConfig;
